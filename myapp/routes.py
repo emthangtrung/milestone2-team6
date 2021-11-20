@@ -6,7 +6,7 @@ from flask import render_template
 # import for render markdown
 import markdown
 import markdown.extensions.fenced_code
-from flaskext.markdown import Markdown
+from flask.ext.markdown import Markdown
 
 @myapp_obj.route("/")
 def home():
