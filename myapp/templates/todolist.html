@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<div style="margin-top: 50px;" class="ui container">
+<div style="margin-top: 25px;" class="ui container">
     <h1>To Do List</h1>
 
     <form action="/add" method="post">
@@ -19,10 +19,10 @@
         {% if todo.complete == False %}
         <span>Not Complete</span>
         {% else %}
-        <span>Completed</span>
+        <span>Done</span>
         {% endif %}
 
-        <a href="/update/{{ todo.id }}">Update</a>
+        <a href="/update/{{ todo.id }}">Mark as done</a>
         <a href="/delete/{{ todo.id }}">Delete</a>
     </div>
     {% endfor %}
