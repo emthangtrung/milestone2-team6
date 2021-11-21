@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="margin-top: 25px;" class="ui container">
+    <h3>Pomodoro Timer</h3>
+
+    <div>
+      <div>
+        <span>25</span>
+        <span>Minutes</span>
+      </div>
+
+      <div>
+        <span>00</span>
+        <span>Seconds</span>
+      </div>
+    </div>
+    <div>
+      <a href="#" class="size2 m1-txt1 flex-c-m how-btn1 trans-04 start-stop"
+        onclick="timerFlag == 0? startTimer(): stopTimer();">
+        Start
+      </a>
+    </div>
+    <div>
+      <a href="#" class="size2 m1-txt1 flex-c-m how-btn1 trans-04 pause"
+        onclick="pauseFlag == 1?resumeTimer(): pauseTimer();">
+        Pause
+      </a>
+    </div>
+  </div>
+{% endblock %}
