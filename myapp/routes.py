@@ -4,21 +4,37 @@ from myapp import myapp_obj
 from myapp.forms import LoginForm
 from flask import render_template
 
+# ------------Render Markdown work in process ---------------->
 # import for render markdown
-import markdown
-import markdown.extensions.fenced_code
-from flask.ext.markdown import Markdown
 
-@myapp_obj.route("/")
+# import markdown
+# import markdown.extensions.fenced_code
+# from flaskext.markdown import Markdown
+# # pdf download able
+# from flask import make_response
+# import pdfkit
+# ---------------------------------------------->
+
+
+
+# Home Page
+@myapp_obj.route("/") 
 def home():
     return render_template("home.html")
-
-
+# Login Page
 @myapp_obj.route("/login", methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     return render_template("login.html", form=form)
 
+
+
+
+
+
+
+
+# ------------Render Markdown work in process ---------------->
 # Render Markdown
 def renderMarkdown():
     read_file = open("Specification.md", "r")
@@ -26,16 +42,9 @@ def renderMarkdown():
           read_file.read(), extensions=["fenced_code"]
       )
     return md_template_string
-Markdown(myapp_obj)
-@myapp_obj.route("/renderFlashCard")
+# Markdown(myapp_obj)
+# @myapp_obj.route()
 def renderFlashCard():
     mkd_text = renderMarkdown()
     return render_template("renderFlashCard.html", mkd_text=mkd_text)
-
-@myapp_obj.route("/todolist")
-def timer():
-
-    return render_template("todolist.html")
-
-
 
