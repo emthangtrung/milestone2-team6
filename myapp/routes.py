@@ -10,17 +10,19 @@ import markdown
 import markdown.extensions.fenced_code
 from flask.ext.markdown import Markdown
 
+#home page
 @myapp_obj.route("/")
 def home():
     return render_template("home.html")
 
-
+#start login page
 @myapp_obj.route("/login", methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     return render_template("login.html", form=form)
+#end login page
 
-# Render Markdown page
+#start render Markdown page
 def renderMarkdown():
     read_file = open("Specification.md", "r")
     md_template_string = markdown.markdown(
@@ -32,9 +34,10 @@ Markdown(myapp_obj)
 def renderFlashCard():
     mkd_text = renderMarkdown()
     return render_template("renderFlashCard.html", mkd_text=mkd_text)
+#end render Markdown page
 
     
-#todo list page
+#start todo list page
 @myapp_obj.route("/todolist")
 def todoList():
     todo_list = Todo.query.all()
@@ -64,9 +67,11 @@ def delete(todo_id):
     db.session.delete(todo)
     db.session.commit()
     return redirect(url_for("todoList"))
+#end todo list page
 
 
-#pomorodo timer page
+#start pomorodo timer page
 @myapp_obj.route("/pomorodo")
 def timer():
     return render_template("todolist.html")
+#end pomorodo timer page
