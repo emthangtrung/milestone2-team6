@@ -1,4 +1,5 @@
 
+from flask.templating import render_template_string
 from myapp import myapp_obj
 from myapp.forms import LoginForm
 from flask import render_template
@@ -47,9 +48,3 @@ def renderFlashCard():
     mkd_text = renderMarkdown()
     return render_template("renderFlashCard.html", mkd_text=mkd_text)
 
-    # pdf = pdfkit.from_string(html, False)
-    # response = make_response(pdf)
-    # response.headers["Content-Type"] = "application/pdf"
-    # response.headers["Content-Disposition"] = "inline; filename=output.pdf"
-    # return response
-# ------------------------------------------------------------------------------>
