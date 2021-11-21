@@ -1,4 +1,5 @@
 
+from flask.templating import render_template_string
 from myapp import myapp_obj
 from myapp.forms import LoginForm
 from flask import render_template
@@ -30,3 +31,11 @@ Markdown(myapp_obj)
 def renderFlashCard():
     mkd_text = renderMarkdown()
     return render_template("renderFlashCard.html", mkd_text=mkd_text)
+
+@myapp_obj.route("/todolist")
+def timer():
+
+    return render_template("todolist.html")
+
+
+
