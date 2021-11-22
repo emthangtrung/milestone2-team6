@@ -73,5 +73,5 @@ def delete(todo_id):
 #start pomorodo timer page
 @myapp_obj.route("/pomorodo")
 def timer():
-    return render_template("todolist.html")
+    return render_template("pomorodo.html")
 #end pomorodo timer page
