@@ -27,6 +27,7 @@ def login():
 #start render Markdown page
 # --> it is too simple
 # --> still under contruction (working for more function)
+
 def renderMarkdown():
     read_file = open("Readme.md", encoding="utf8")
     md_template_string = markdown.markdown(
