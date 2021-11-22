@@ -9,7 +9,8 @@ from datetime import datetime, date, timedelta
 # import for render markdown
 import markdown
 import markdown.extensions.fenced_code
-from flask.ext.markdown import Markdown
+import markdown.extensions.codehilite
+from pygments.formatters import HtmlFormatter
 
 #home page
 @myapp_obj.route("/")
@@ -23,19 +24,27 @@ def login():
     return render_template("login.html", form=form)
 #end login page
 
+
 #start render Markdown page
+# --> it is too simple
+# --> still under contruction (working for more function)
 def renderMarkdown():
-    read_file = open("Specification.md", "r")
+    read_file = open("Readme.md", encoding="utf8")
     md_template_string = markdown.markdown(
           read_file.read(), extensions=["fenced_code"]
       )
-    return md_template_string
-Markdown(myapp_obj)
+    # Generate Css for syntax highlighting
+    formatter = HtmlFormatter(style="emacs",full=True,cssclass="codehilite")
+    css_string = formatter.get_style_defs()
+    md_css_string = "<style>" + css_string + "</style>"
+    md_template = md_css_string + md_template_string
+    return md_template
 @myapp_obj.route("/renderFlashCard")
 def renderFlashCard():
     mkd_text = renderMarkdown()
+    # return mkd_text
     return render_template("renderFlashCard.html", mkd_text=mkd_text)
-#end render Markdown page
+#end render Markdown page ----------------------------------------------->
 
     
 #start todo list page
@@ -43,7 +52,6 @@ def renderFlashCard():
 def todoList():
     todo_list = Todo.query.all()
     return render_template("todolist.html", todo_list=todo_list)
-
 
 @myapp_obj.route("/add", methods=["POST"])
 def add():
@@ -53,14 +61,12 @@ def add():
     db.session.commit()
     return redirect(url_for("todoList"))
 
-
 @myapp_obj.route("/update/<int:todo_id>")
 def update(todo_id):
     todo = Todo.query.filter_by(id=todo_id).first()
     todo.complete = not todo.complete
     db.session.commit()
     return redirect(url_for("todoList"))
-
 
 @myapp_obj.route("/delete/<int:todo_id>")
 def delete(todo_id):
