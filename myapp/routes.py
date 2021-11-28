@@ -13,7 +13,9 @@ import markdown
 import markdown.extensions.fenced_code
 from pygments.formatters import HtmlFormatter
 from werkzeug.utils import secure_filename
-
+# import for pdf to print
+from flask import make_response
+import pdfkit
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 # Home
@@ -100,10 +102,11 @@ def delete_flashcard(id):
     flash('Flash card has been deleted!', 'success')
     return redirect(url_for('input_flashcards'))
 
-
-#start render Markdown page
-# --> it is too simple
-# --> still under contruction (working for more function)
+# start render Markdown page
+@myapp_obj.route("/renderFlashCard")
+def renderFlashCard():
+    return render_template("renderFlashCard.html")
+@myapp_obj.route("/convert", methods=["POST"])
 def renderMarkdown():
     read_file = open("Readme.md", encoding="utf8")
     md_template_string = markdown.markdown(
@@ -115,12 +118,6 @@ def renderMarkdown():
     md_css_string = "<style>" + css_string + "</style>"
     md_template = md_css_string + md_template_string
     return md_template
-
-@myapp_obj.route("/renderFlashCard")
-def renderFlashCard():
-    mkd_text = renderMarkdown()
-    # return mkd_text
-    return render_template("renderFlashCard.html", mkd_text=mkd_text)
 #end render Markdown page ----------------------------------------------->
 
 #start todo list page
@@ -158,3 +155,19 @@ def delete(todo_id):
 def timer():
     return render_template("pomorodo.html")
 #end pomorodo timer page
+
+# create pdf to print
+@myapp_obj.route("/download")
+def orders():
+    return render_template("download.html")
+@myapp_obj.route("/dir", methods=["POST"])
+def dlPdf():
+    path_wkhtmltopdf = r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
+    html = render_template("download.html")
+    config = pdfkit.configuration(wkhtmltopdf=path_wkhtmltopdf)
+    pdf = pdfkit.from_string(html, False, configuration=config)
+    response = make_response(pdf)
+    response.headers["Content-Type"] = "application/pdf"
+    response.headers["Content-Disposition"] = "inline; filename=output.pdf"
+    return response
+# end create pdf to print
