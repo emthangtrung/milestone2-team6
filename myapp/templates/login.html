@@ -1,16 +1,18 @@
-{% extends "base.html" %}
-{% block content %}
-<div class="text-center">
-    <h1>Sign in</h1>
-    <form method="POST" novalidate>
-        {{ form.hidden_tag() }}
-        <p> {{ form.username.label }} <br>
-            {{ form.username(size=32) }}</p>
-        <p> {{ form.password.label }} <br>
-            {{ form.password(size=32) }}</p>
-        <p> {{ form.remember_me.label }} <br>
-            {{ form.remember_me() }}</p>
-        <p>{{ form.submit() }}</p>
-    </form>
+<div class="container mt-5">
+    <div class="row">
+        <div class="text-center">
+            <h1>Sign in</h1>
+            <form method="POST" novalidate>
+                {{ form.hidden_tag() }}
+                <p> {{ form.username.label }} <br>
+                    {{ form.username(size=32) }}</p>
+                <p> {{ form.password.label }} <br>
+                    {{ form.password(size=32) }}</p>
+                <p> {{ form.remember_me.label }} <br>
+                    {{ form.remember_me() }}</p>
+                <p>{{ form.submit() }}</p>
+            </form>
+        </div>
+    </div>
 </div>
 {% endblock %}

@@ -1,15 +1,22 @@
+
 from flask.templating import render_template_string
+from werkzeug.wrappers import response
 from myapp import myapp_obj
 from myapp.forms import LoginForm
 from flask import Flask, render_template, request, redirect, url_for
 from myapp import db
 from myapp.models import Todo
+from datetime import datetime, date, timedelta
 
 # import for render markdown
 import markdown
 import markdown.extensions.fenced_code
 import markdown.extensions.codehilite
 from pygments.formatters import HtmlFormatter
+
+# create pdf to print
+from flask import make_response
+import pdfkit
 
 #home page
 @myapp_obj.route("/")
@@ -23,10 +30,11 @@ def login():
     return render_template("login.html", form=form)
 #end login page
 
-
-#start render Markdown page
-# --> it is too simple
-# --> still under contruction (working for more function)
+# start render Markdown page
+@myapp_obj.route("/renderFlashCard")
+def renderFlashCard():
+    return render_template("renderFlashCard.html")
+@myapp_obj.route("/convert", methods=["POST"])
 def renderMarkdown():
     read_file = open("Readme.md", encoding="utf8")
     md_template_string = markdown.markdown(
@@ -43,8 +51,23 @@ def renderFlashCard():
     mkd_text = renderMarkdown()
     # return mkd_text
     return render_template("renderFlashCard.html", mkd_text=mkd_text)
-#end render Markdown page ----------------------------------------------->
+# end render Markdown page ----------------------------------------------->
 
+# create pdf to print
+@myapp_obj.route("/download")
+def orders():
+    return render_template("download.html")
+@myapp_obj.route("/dir", methods=["POST"])
+def dlPdf():
+    path_wkhtmltopdf = r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
+    html = render_template("download.html")
+    config = pdfkit.configuration(wkhtmltopdf=path_wkhtmltopdf)
+    pdf = pdfkit.from_string(html, False, configuration=config)
+    response = make_response(pdf)
+    response.headers["Content-Type"] = "application/pdf"
+    response.headers["Content-Disposition"] = "inline; filename=output.pdf"
+    return response
+# end create pdf to print
     
 #start todo list page
 @myapp_obj.route("/todolist")
