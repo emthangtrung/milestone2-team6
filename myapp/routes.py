@@ -100,10 +100,11 @@ def delete_flashcard(id):
     flash('Flash card has been deleted!', 'success')
     return redirect(url_for('input_flashcards'))
 
-
-#start render Markdown page
-# --> it is too simple
-# --> still under contruction (working for more function)
+# start render Markdown page
+@myapp_obj.route("/renderFlashCard")
+def renderFlashCard():
+    return render_template("renderFlashCard.html")
+@myapp_obj.route("/convert", methods=["POST"])
 def renderMarkdown():
     read_file = open("Readme.md", encoding="utf8")
     md_template_string = markdown.markdown(
@@ -115,12 +116,6 @@ def renderMarkdown():
     md_css_string = "<style>" + css_string + "</style>"
     md_template = md_css_string + md_template_string
     return md_template
-
-@myapp_obj.route("/renderFlashCard")
-def renderFlashCard():
-    mkd_text = renderMarkdown()
-    # return mkd_text
-    return render_template("renderFlashCard.html", mkd_text=mkd_text)
 #end render Markdown page ----------------------------------------------->
 
 #start todo list page
