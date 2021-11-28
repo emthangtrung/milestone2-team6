@@ -13,7 +13,9 @@ import markdown
 import markdown.extensions.fenced_code
 from pygments.formatters import HtmlFormatter
 from werkzeug.utils import secure_filename
-
+# import for pdf to print
+from flask import make_response
+import pdfkit
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 # Home
@@ -153,3 +155,19 @@ def delete(todo_id):
 def timer():
     return render_template("pomorodo.html")
 #end pomorodo timer page
+
+# create pdf to print
+@myapp_obj.route("/download")
+def orders():
+    return render_template("download.html")
+@myapp_obj.route("/dir", methods=["POST"])
+def dlPdf():
+    path_wkhtmltopdf = r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
+    html = render_template("download.html")
+    config = pdfkit.configuration(wkhtmltopdf=path_wkhtmltopdf)
+    pdf = pdfkit.from_string(html, False, configuration=config)
+    response = make_response(pdf)
+    response.headers["Content-Type"] = "application/pdf"
+    response.headers["Content-Disposition"] = "inline; filename=output.pdf"
+    return response
+# end create pdf to print
