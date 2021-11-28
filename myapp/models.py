@@ -24,13 +24,6 @@ class User(db.Model, UserMixin):
         return bcrypt.check_password_hash(self.password, password)
 
 
-class MDfile(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    mdfile_db = db.Column(db.String(800))
-
-    def __init__(self, mdfile_db):
-        self.mdfile_db = mdfile_db
-
 class FlashCard(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     front = db.Column(db.Text)
