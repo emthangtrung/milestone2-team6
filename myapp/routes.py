@@ -46,11 +46,11 @@ def renderMarkdown():
     md_css_string = "<style>" + css_string + "</style>"
     md_template = md_css_string + md_template_string
     return md_template
-@myapp_obj.route("/renderFlashCard")
-def renderFlashCard():
-    mkd_text = renderMarkdown()
-    # return mkd_text
-    return render_template("renderFlashCard.html", mkd_text=mkd_text)
+# @myapp_obj.route("/renderFlashCard")
+# def renderFlashCard():
+#     mkd_text = renderMarkdown()
+#     # return mkd_text
+#     return render_template("renderFlashCard.html", mkd_text=mkd_text)
 # end render Markdown page ----------------------------------------------->
 
 # create pdf to print
