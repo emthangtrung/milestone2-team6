@@ -2,7 +2,7 @@ import os
 from flask.templating import render_template_string
 from myapp import myapp_obj, db
 from .forms import LoginForm, SignupForm, FlashCardForm
-from .models import User, MDfile, Todo, FlashCard
+from .models import User, Todo, FlashCard
 from flask import url_for, render_template, redirect, request, flash, abort
 from flask_login import login_user, current_user, logout_user, login_required
 from sqlalchemy import exc
