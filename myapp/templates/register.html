@@ -2,14 +2,18 @@
 {% block content %}
     <div class="d-flex justify-content-center">
         <div class="card mt-4 border-info w-50">
-            <div class="card-header bg-custom">Login</div>
+            <div class="card-header bg-custom">Register</div>
             {% if not current_user.is_authenticated %}
             <div class="card-body text-center">
                 <form action="" method="POST">
                     {{ form.hidden_tag() }}
                     <div class="form-group mb-3">
                         {{ form.username.label(class="form-control-label") }} <!-- Render the label for form field using .label as you can see-->
-                        {{ form.username(class="form-control") }} <!-- Render the form field like this-->
+                        {{ form.username(class="form-control") }} <!-- Render the form fields like this -->
+                    </div>
+                    <div class="form-group mb-3">
+                        {{ form.email.label(class="form-control-label") }}
+                        {{ form.email(class="form-control") }}
                     </div>
                     <div class="form-group mb-3">
                         {{ form.password.label(class="form-control-label") }}
@@ -18,12 +22,12 @@
                     {{ form.submit(class="btn btn-outline-primary") }}
                 </form>
                 <div class="text-center p-2">
-                    <small class="text-muted">Don't have an account? Sign up <a href="/signup">here</a></small>
+                    <small class="text-muted">Already Signed up? Sign in <a href="/login">here</a></small>
                 </div>
             </div>
             {% else %}
                 <div class="text-center p-2">
-                    <p class="text-lead">You are already logged in.</p>
+                    <p class="text-lead">You are already logged in and cannot register. Please <a href="/logout">Logout</a> to register a new account.</p>
                 </div>
             {% endif %}
         </div>
