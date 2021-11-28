@@ -30,9 +30,6 @@ def login():
     return render_template("login.html", form=form)
 #end login page
 
-
-
-
 # start render Markdown page
 @myapp_obj.route("/renderFlashCard")
 def renderFlashCard():
