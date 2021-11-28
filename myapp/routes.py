@@ -30,6 +30,9 @@ def login():
     return render_template("login.html", form=form)
 #end login page
 
+
+
+
 # start render Markdown page
 @myapp_obj.route("/renderFlashCard")
 def renderFlashCard():
@@ -46,11 +49,6 @@ def renderMarkdown():
     md_css_string = "<style>" + css_string + "</style>"
     md_template = md_css_string + md_template_string
     return md_template
-# @myapp_obj.route("/renderFlashCard")
-# def renderFlashCard():
-#     mkd_text = renderMarkdown()
-#     # return mkd_text
-#     return render_template("renderFlashCard.html", mkd_text=mkd_text)
 # end render Markdown page ----------------------------------------------->
 
 # create pdf to print
@@ -68,7 +66,7 @@ def dlPdf():
     response.headers["Content-Disposition"] = "inline; filename=output.pdf"
     return response
 # end create pdf to print
-    
+
 #start todo list page
 @myapp_obj.route("/todolist")
 def todoList():
