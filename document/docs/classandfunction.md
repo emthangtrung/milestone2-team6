@@ -182,8 +182,13 @@ user_id (int)          id interger of the users's card
 
 ```
 ###### renderMarkdown
-```
+``` 
+"""
+[This methods is taking markdown file and convert it into html ]
 
+Returns:
+    [HTML file]: [convert from markdown file to html file]
+"""
 ```
 ###### todoList
 ```
@@ -206,6 +211,13 @@ user_id (int)          id interger of the users's card
 ```
 ###### dlPdf
 ```
+"""
+[This function is taking an html file and 
+    convert it into pdf. Download available]
+
+Returns:
+    [Pdf file]: [a pdf file with button to download]
+"""
 ```
 
 
