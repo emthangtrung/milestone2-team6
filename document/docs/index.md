@@ -5,6 +5,7 @@
 * `source [name of environment]/bin/activate` - Activiate your environment
 * `pip install -r requirements.txt` - Install those requirement which need to run 
 * `python3 run.py` -  run the application
+* `pip install Flask-WkHTMLtoPDF` or via website `https://wkhtmltopdf.org/downloads.html`
 
 ## Project layout
 
