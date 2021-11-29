@@ -1,7 +1,5 @@
 **Milestone2-team6**
 
-Project github repo: https://github.com/emthangtrung/milestone2-team6.git
-
 [![Logo fonts](https://see.fontimg.com/api/renderfont4/BW0ox/eyJyIjoiZnMiLCJoIjozOCwidyI6MTAwMCwiZnMiOjM4LCJmZ2MiOiIjQUZBMzUyIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/Q01QRSAxMzEgVGVhbSA2/aquire.png)]()
 
 #### Member name:
