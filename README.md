@@ -2,8 +2,6 @@
 
 Project github repo: https://github.com/emthangtrung/milestone2-team6.git
 
-Danh Pham([emthangtrung (github.com)](https://github.com/emthangtrung))
-
 [![Logo fonts](https://see.fontimg.com/api/renderfont4/BW0ox/eyJyIjoiZnMiLCJoIjozOCwidyI6MTAwMCwiZnMiOjM4LCJmZ2MiOiIjQUZBMzUyIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/Q01QRSAxMzEgVGVhbSA2/aquire.png)]()
 
 #### Member name:
