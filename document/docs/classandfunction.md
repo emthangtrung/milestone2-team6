@@ -48,9 +48,9 @@
 a form which user use to fill out to sign up
 
 username (str)		string field indicate username
-email (str)		string field indicate email 
+email (str) 		string field indicate email 
 password (str)		string field indicate password
-Submit			trigger when user submit
+Submit 				trigger when user submit
 
 
 ```
@@ -62,7 +62,7 @@ a form which users use to fill out to login
 
 username (str)		string filed indicate username 
 password (str)		string field indicate password 
-submit			trigger when user submit
+submit 				trigger when user submit
 
 ```
 
@@ -73,7 +73,7 @@ a form which user use to input flash card
 
 front (str)		string field indicate input of front of flash card	
 back (str)		string field indicate input of back of flash card
-submib			trigger when user submit to create a new flash card
+submit			trigger when user submit to create a new flash card
 
 ```
 
