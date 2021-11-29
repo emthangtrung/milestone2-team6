@@ -5,17 +5,13 @@
 ## **Summary of classes and functions**
 
 
-#### forms.py
-
-###### Form Class:
+#### **forms.py**
 
 * [LoginForm](#loginform)
 * [SignupForm](#signupform)
 * [FlashCardForm](#flashcardform)
 
-#### models.py
-
-###### Model Class:
+#### **models.py**
 
 * [User](#user)
     * [__init__()](#init)
@@ -24,9 +20,8 @@
 * [Flashcard](#flashcard)
 * [Todo](#todo)
 
-#### routes.py
+#### **routes.py**
 
-###### Functions:
 * [home()](home)
 * [signup()](#signup)
 * [login()](#login)
@@ -44,29 +39,29 @@
 
 ## **Doctrings**
 
-#### forms.py:
+#### **forms.py:**
 
 ###### SignupForm
 
 ```
 a form which user use to fill out to sign up
 
-Username(str)   a string field indicate username
-Email(str)	a string field indicate email
-Password(str)	a string field indicate password
-Submit		a string field triggered when user submit
+username (str)		string field indicate username
+email (str)		string field indicate email 
+password (str)		string field indicate password
+Submit			trigger when user submit
+
 
 ```
-
 
 ###### LoginForm
 
 ```
 a form which users use to fill out to login
 
-Username (str)  a string field indicate username
-Password (str)	a string field indicate password
-Submit		a string field triggered when user submit
+username (str)		string filed indicate username 
+password (str)		string field indicate password 
+submit			trigger when user submit
 
 ```
 
@@ -75,14 +70,14 @@ Submit		a string field triggered when user submit
 ```
 a form which user use to input flash card
 
-Front (str)	a string field indicate input of front of flash card	
-Back (str)      a string field indicate input of back of flash card
-Submit		a string field triggered when user submit to create a new flash card
+front (str)		string field indicate input of front of flash card	
+back (str)		string field indicate input of back of flash card
+submib			trigger when user submit to create a new flash card
 
 ```
 
 
-#### models.py:
+#### **models.py:**
 
 ###### Users
 
@@ -102,9 +97,9 @@ flashcard (List<obj>)   list of object containing flashcards which is added by t
 ```
 Initialize the user
 
-self (obj)              reference to this class instance
-username(str)		a string which contain username
-email                   a string which contain email
+self (obj)		reference to this class instance
+username(str)		string which contain username
+email(str)		string which contain email
 
 ```
 
@@ -114,7 +109,7 @@ email                   a string which contain email
 set password by using bcrypt hashing
 
 self (obj)              reference to this class instance
-password (string)       a string which contain password
+password (string)       string which contain password
 
 ```
 
@@ -124,9 +119,10 @@ password (string)       a string which contain password
 check password by using bcrypt hashing
 
 self (obj)             reference to this class instance
-password (string)      a string which contain password
+password (string)      string which contain password
 
-The function returns True if the password provided by the user matches the hash, or False otherwise
+Returns: 
+	True if the password provided by the user matches the hash, or False otherwise
 
 ```
 
@@ -150,34 +146,59 @@ user_id (int)          id interger of the users's card
 ```
 
 
-#### routes.py
+#### **routes.py**
 
 ##### function:
 
 
 ###### home
 ```
+Return:
+	home page if user logged in 
 
 ```
+
 ###### signup
-
 ```
+Navigate to sign up page 
+    
+Returns:
+	  redirecting back to the login page
 
 ```
 ###### login
 ```
+Navigate to log in page 
+ 
+Returns:
+	  redirecting back to the page
+     or 
+	  redirecting to input flashcard page
 
 ```
 ###### logout
 ```
+Log out and redirect back to the login page
+         
+Returns:
+        redirecting back to the log in page
 
 ```
+
 ###### input_flashcard
 ```
+This function will help user add flashcard
+
+Return:
+	redirecting back to the input flashcard page
 
 ```
 ###### delete_flashcard
 ```
+This function will help user delete the flash card which is inputed by user
+
+Return:
+	redirecting back to the input flashcard page
 
 ```
 ###### renderMarkdown
@@ -186,6 +207,7 @@ user_id (int)          id interger of the users's card
 ```
 ###### todoList
 ```
+
 ```
 ###### add
 ```
