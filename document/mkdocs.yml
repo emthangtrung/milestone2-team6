@@ -1,3 +1,4 @@
 site_name: StudyHub - Team 6
 nav:
     - Home: index.md
+    - Summary: classandfunction.md
