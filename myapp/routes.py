@@ -1,8 +1,8 @@
 import os
 from flask.templating import render_template_string
 from myapp import myapp_obj, db
-from .forms import LoginForm, SignupForm, FlashCardForm
-from .models import User, Todo, FlashCard
+from .forms import LoginForm, SignupForm, FlashCardForm, EventsForm
+from .models import User, Todo, FlashCard, Events
 from flask import url_for, render_template, redirect, request, flash, abort
 from flask_login import login_user, current_user, logout_user, login_required
 from sqlalchemy import exc
@@ -16,6 +16,9 @@ from werkzeug.utils import secure_filename
 # import for pdf to print
 from flask import make_response
 import pdfkit
+
+#importing calendars
+import calendar
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 # Home
@@ -170,4 +173,24 @@ def dlPdf():
     response.headers["Content-Type"] = "application/pdf"
     response.headers["Content-Disposition"] = "inline; filename=output.pdf"
     return response
-# end create pdf to print
+
+
+#adding evetns to calendar
+@myapp_obj.route("/create-event", methods=['GET','POST'])
+@login_required
+def create_event():
+    form = EventsForm()
+    user_events = Events.query.filter_by(user=current_user).all()
+    if form.validate_on_submit():
+        new_event = Events(event=form.event.data, time=form.time.data,user=current_user)
+        db.session.add(new_event)
+        db.session.commit()
+        flash('Event has been added')
+        return redirect(url_for('create_event'))
+    return render_template("createEvent.html", form=form, user_events=user_events)
+
+#viewing calendar
+@myapp_obj.route("/calendar-view", methods=['GET', 'POST'])
+@login_required
+def calender_view():
+    return render_template("viewCalendarV2.html")
