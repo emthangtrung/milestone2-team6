@@ -28,7 +28,8 @@
 		input-flash-cards.html 		# Page to input and delete flashcards
 		promorodo.html
 		todolist.html
-		renderFlashCard.html
+        download.html           # Convert html file to pdf
+		renderFlashCard.html    # Convert md file to html
     document/	         # mkdocs document
 	docs/
 		index.md  		# The document home page
