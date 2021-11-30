@@ -9,7 +9,7 @@ function showTimer() {
     console.log(minutes + seconds);
 }
 
-function stopTimer() {
+function stop() {
     timerFlag = 0;
     pauseFlag = 0;
     minutes = 25;
@@ -20,7 +20,7 @@ function stopTimer() {
     clearTimeout(t);
 }
 
-function startTimer() {
+function start() {
     timerFlag = 1;
     pauseFlag = 0;
     updateTimer();
@@ -30,14 +30,14 @@ function startTimer() {
     $(".start-stop-area").hide();
 }
 
-function pauseTimer() {
+function pause() {
     pauseFlag = 1;
     clearTimeout(t);
     $(".start-stop-area").show();
     $(".pause").html("Resume");
 }
 
-function resumeTimer() {
+function resume() {
     pauseFlag = 0;
     updateTimer();
     $(".pause").html("Pause");
