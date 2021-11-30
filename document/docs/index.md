@@ -1,11 +1,13 @@
 # Welcome to StudyHub - Team 6
 
+[Team's Repo](https://github.com/emthangtrung/milestone2-team6) 
+
 ## Installation
 
 * `source [name of environment]/bin/activate` - Activiate your environment
 * `pip install -r requirements.txt` - Install those requirement which need to run 
-* `python3 run.py` -  run the application
 * `pip install Flask-WkHTMLtoPDF` or via website `https://wkhtmltopdf.org/downloads.html`
+* `python3 run.py` -  run the application 
 
 ## Project layout
 
@@ -31,6 +33,7 @@
 		renderFlashcard.html 		# Page for user plaint text formating
 		download.html				# Page for user convert & download
 		Viewcalendar2.html			# Page for user view and track calendar
+		createEvents.html			# Page for user create events
 	
     document/						# mkdocs document
 	docs/

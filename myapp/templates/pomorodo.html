@@ -1,12 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 <div style="margin-top: 25px;" class="ui container">
-    
-
-    <body>
   <div>
-    <div>
-      <h3>Pomodoro Timer</h3>
+      <h3>Pomodoro Timer!</h3>
 
       <div>
         <div>
@@ -19,34 +15,34 @@
           <span class="s1-txt1 where1 p-l-35">Seconds</span>
         </div>
       </div>
-      <div class="flex-col-c wsize1 m-t-10 m-b-10 start-stop-area">
+      <div>
         <a href="#" class="size2 m1-txt1 flex-c-m how-btn1 trans-04 start-stop"
-          onclick="timerFlag == 0? startTimer(): stopTimer();">
+          onclick="timerFlag == 0? start(): stop();">
           Start
         </a>
       </div>
-      <div class="flex-col-c wsize1 m-t-10 m-b-10 pause-area">
+      <div>
         <a href="#" class="size2 m1-txt1 flex-c-m how-btn1 trans-04 pause"
-          onclick="pauseFlag == 1?resumeTimer(): pauseTimer();">
+          onclick="pauseFlag == 1?resume(): pause();">
           Pause
         </a>
       </div>
     </div>
-    
+  </div>
+
   <script src="{{ url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js') }}"></script>
- 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ 
   <script>
     $(".pause-area").hide();
-    var minutes = 25;
+    var minutes = 1;
     var seconds = 0;
     var timerFlag = 0;
     var pauseFlag = 0
   </script>
   
-  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/pomorodo.js') }}"></script>
 
-</body>
-  </div>
+</div>
 {% endblock %}
