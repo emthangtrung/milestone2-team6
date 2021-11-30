@@ -1,12 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 <div style="margin-top: 25px;" class="ui container">
-    
-
-    <body>
   <div>
-    <div>
-      <h3>Pomodoro Timer</h3>
+      <h3>Pomodoro Lite</h3>
 
       <div>
         <div>
@@ -32,11 +28,12 @@
         </a>
       </div>
     </div>
-    
+  </div>
+
   <script src="{{ url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js') }}"></script>
- 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ 
   <script>
     $(".pause-area").hide();
     var minutes = 25;
@@ -45,8 +42,7 @@
     var pauseFlag = 0
   </script>
   
-  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/pomorodo.js') }}"></script>
 
-</body>
-  </div>
+</div>
 {% endblock %}
