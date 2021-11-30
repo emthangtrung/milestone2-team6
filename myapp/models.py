@@ -12,6 +12,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(80), unique=True)
     password = db.Column(db.String(80))
     flashcards = db.relationship('FlashCard', backref='user', lazy=True)
+    events = db.relationship('Events', backref='user', lazy=True)
 
     def __init__(self, username, email):
         self.username = username
@@ -40,7 +41,7 @@ class Todo(db.Model):
 #event list for calendar
 class Events(db.Model):
     id = db.Column(db.Integer, primary_key = True)
-    event = db.Column(db.Text)
+    addevent = db.Column(db.Text)
     time = db.Column(db.Integer)
-
+    
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
