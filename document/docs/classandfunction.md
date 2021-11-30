@@ -66,9 +66,9 @@ Submit 				trigger when user submit
 ```
 a form which users use to fill out to login
 
-username (str)		string filed indicate username 
-password (str)		string field indicate password 
-submit 				trigger when user submit
+username (str)			string filed indicate username 
+password (str)			string field indicate password 
+submit 					trigger when user submit
 
 ```
 
@@ -77,16 +77,17 @@ submit 				trigger when user submit
 ```
 a form which user use to input flash card
 
-front (str)		string field indicate input of front of flash card	
-back (str)		string field indicate input of back of flash card
-submit			trigger when user submit to create a new flash card
+front (str)				string field indicate input of front of flash card	
+back (str)				string field indicate input of back of flash card
+submit					trigger when user submit to create a new flash card
 
 ```
 
 ###### EventsForm
 ```
-
-
+addevent(str)   		string field indicate event
+time(str)   			string field indicate time
+submit      			trigger when user create a new event
 ```
 
 #### **models.py:**
@@ -109,9 +110,9 @@ flashcard (List<obj>)   list of object containing flashcards which is added by t
 ```
 Initialize the user
 
-self (obj)		reference to this class instance
-username(str)	string which contain username
-email(str)		string which contain email
+self (obj)			reference to this class instance
+username(str)		string which contain username
+email(str)			string which contain email
 
 ```
 
@@ -163,7 +164,9 @@ complete (boo)         boolean for complete or non complete task
 
 ###### Events
 ```
-
+id (int)			   id integer of event
+addevent (text) 	   text which add the event 
+time 				   time of the event
 ```
 
 #### **routes.py**
@@ -243,15 +246,28 @@ Returns:
 ```
 ###### add
 ```
+"""Add event to data base
 
+Returns:
+    back to todolist page
+"""
 ```
 ###### update
 ```
+"""Update event to data base
+    
+Returns:
+    back to todolist page
+"""
 
 ```
 ###### delete
 ```
+"""Delete event from data base
 
+Returns:
+    back to todolist page
+"""
 ```
 ###### timer
 ```
@@ -279,10 +295,23 @@ Returns:
 
 ###### create_event
 ```
+"""user can add a event on specific date. 
+    The event gets saved onto the data base
+
+Returns:
+    lets user know their event has been added. 
+    Button is shown so user can go to calender.
+    Show their event block on the calender
+"""
 
 ```
 
 ###### calender_view
 ```
+"""user can see their even block on the calendar once they have made one
+
+Returns:
+    back to viewCalendarV2 page
+"""
 
 ```
