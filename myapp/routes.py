@@ -17,9 +17,6 @@ from werkzeug.utils import secure_filename
 from flask import make_response
 import pdfkit
 
-#importing calendars
-import calendar
-
 basedir = os.path.abspath(os.path.dirname(__file__))
 # Home
 @myapp_obj.route('/', methods=['GET'])
@@ -270,9 +267,9 @@ def create_event():
         Show their event block on the calender
     """
     form = EventsForm()
-    user_events = Events.query.filter_by(user=current_user).all()
+    user_events = Events.query.filter_by(user_id=current_user).all()
     if form.validate_on_submit():
-        new_event = Events(event=form.event.data, time=form.time.data,user=current_user)
+        new_event = Events(addevent=form.addevent.data, time=form.time.data,user_id=current_user)
         db.session.add(new_event)
         db.session.commit()
         flash('Event has been added')
@@ -283,9 +280,23 @@ def create_event():
 @myapp_obj.route("/calendar-view", methods=['GET', 'POST'])
 @login_required
 def calender_view():
+
     """user can see their even block on the calendar once they have made one
 
     Returns:
         back to viewCalendarV2 page
     """
-    return render_template("viewCalendarV2.html")
+    
+    events = [
+      {
+          'todo' : 'Start book',
+          'date' : '2021-12-01',
+      },
+      {
+          'todo' : 'Reconsider Life',
+          'date' : '2021-12-18',
+      }
+      ]
+
+    return render_template("viewCalendarV2.html", events = events)
+
