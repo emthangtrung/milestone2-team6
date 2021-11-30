@@ -6,22 +6,27 @@
 ## **Summary of classes and functions**
 
 
-#### **forms.py**
+#### **forms.py** 
+[url](https://github.com/emthangtrung/milestone2-team6/blob/main/myapp/forms.py)
 
 * [LoginForm](#loginform)
 * [SignupForm](#signupform)
 * [FlashCardForm](#flashcardform)
+* [EventsForm](#eventsform)
 
-#### **models.py**
+#### **models.py** 
+[url](https://github.com/emthangtrung/milestone2-team6/blob/main/myapp/models.py)
 
 * [User](#user)
     * [__init__()](#init)
     * [set_password()](#set_password)
     * [check_password()](#check_password)
 * [Flashcard](#flashcard)
-* [Todo](#todo)
+* [Todo](#Todo)
+* [Events](#Events)
 
-#### **routes.py**
+#### **routes.py** 
+[url](https://github.com/emthangtrung/milestone2-team6/blob/main/myapp/routes.py)
 
 * [home()](home)
 * [signup()](#signup)
@@ -36,6 +41,8 @@
 * [delete()](#delete)
 * [timer()](#timer)
 * [dlPdf()](#dlPdf)
+* [create_event()](#create_event)
+* [calender_view()](#calender_view)
 
 
 ## **Doctrings**
@@ -76,7 +83,10 @@ back (str)		string field indicate input of back of flash card
 submit			trigger when user submit to create a new flash card
 
 ```
+######  EventsForm
+```
 
+```
 
 #### **models.py:**
 
@@ -140,12 +150,15 @@ user_id (int)          id interger of the users's card
 ```
 
 
-###### todo
+###### Todo
 ```
 
 
 ```
+###### Events
+```
 
+```
 
 #### **routes.py**
 
@@ -230,17 +243,5 @@ Return:
 ```
 ```
 
-
-# Summary
-
-#### **forms.py**
-
-
-
-#### **models.py**
-
-
-
-#### **routes.py**
 
 
