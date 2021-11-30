@@ -42,6 +42,6 @@ class Todo(db.Model):
 class Events(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     addevent = db.Column(db.Text)
-    time = db.Column(db.Date)
+    time = db.Column(db.Integer)
     
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)

@@ -34,4 +34,8 @@ def _update_db(obj):
 from myapp import routes, models
 
 
-
+#database for events
+def event_update_db(ob):
+    db.session.add(ob)
+    db.session.commit()
+    return ob
