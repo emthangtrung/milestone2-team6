@@ -1,5 +1,7 @@
 # Welcome to StudyHub - Team 6
 
+[Team's repo](https://github.com/emthangtrung/milestone2-team6)
+
 ## Installation
 
 * `source [name of environment]/bin/activate` - Activiate your environment
