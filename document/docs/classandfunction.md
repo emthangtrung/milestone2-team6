@@ -142,6 +142,13 @@ user_id (int)          id interger of the users's card
 
 ###### todo
 ```
+todo list add or delete by user
+
+id (int)               id number of task
+title (str)            string that contain task user input
+complete (boo)         boolean for complete or non complete task
+
+
 
 
 ```
@@ -213,6 +220,13 @@ Returns:
 ```
 ###### todoList
 ```
+"""
+This function help user add todo list
+
+Returns:
+	their task list with complete button
+    
+"""
 
 ```
 ###### add
@@ -229,6 +243,14 @@ Returns:
 ```
 ###### timer
 ```
+"""
+This function help user start studying time
+
+Returns:
+	25mins countdown
+    
+"""
+
 
 ```
 ###### dlPdf
@@ -243,16 +265,8 @@ Returns:
 ```
 
 
-# Summary
-
-#### **forms.py**
+# 
 
 
 
-#### **models.py**
-
-
-
-#### **routes.py**
-
-
+#### 
