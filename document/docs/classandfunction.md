@@ -3,16 +3,19 @@
 
 
 
-## **Summary of classes and functions**
+## **Classes and Functions**
 
 
 #### **forms.py**
+[url](https://github.com/emthangtrung/milestone2-team6/blob/main/myapp/forms.py)
 
 * [LoginForm](#loginform)
 * [SignupForm](#signupform)
 * [FlashCardForm](#flashcardform)
+* [EventsForm](#eventsform)
 
 #### **models.py**
+[url](https://github.com/emthangtrung/milestone2-team6/blob/main/myapp/models.py)
 
 * [User](#user)
     * [__init__()](#init)
@@ -20,10 +23,12 @@
     * [check_password()](#check_password)
 * [Flashcard](#flashcard)
 * [Todo](#todo)
+* [Events](#events)
 
 #### **routes.py**
+[url](https://github.com/emthangtrung/milestone2-team6/blob/main/myapp/routes.py)
 
-* [home()](home)
+* [home()](#home)
 * [signup()](#signup)
 * [login()](#login)
 * [logout()](#logout)
@@ -36,7 +41,8 @@
 * [delete()](#delete)
 * [timer()](#timer)
 * [dlPdf()](#dlPdf)
-
+* [create_event()](#create_event)
+* [calender_view()](#calender_view)
 
 ## **Doctrings**
 
@@ -77,6 +83,11 @@ submit			trigger when user submit to create a new flash card
 
 ```
 
+###### EventsForm
+```
+
+
+```
 
 #### **models.py:**
 
@@ -99,7 +110,7 @@ flashcard (List<obj>)   list of object containing flashcards which is added by t
 Initialize the user
 
 self (obj)		reference to this class instance
-username(str)		string which contain username
+username(str)	string which contain username
 email(str)		string which contain email
 
 ```
@@ -139,8 +150,7 @@ user_id (int)          id interger of the users's card
 
 ```
 
-
-###### todo
+###### Todo
 ```
 todo list add or delete by user
 
@@ -149,10 +159,12 @@ title (str)            string that contain task user input
 complete (boo)         boolean for complete or non complete task
 
 
-
-
 ```
 
+###### Events
+```
+
+```
 
 #### **routes.py**
 
@@ -265,8 +277,12 @@ Returns:
 ```
 
 
-# 
+###### create_event
+```
 
+```
 
+###### calender_view
+```
 
-#### 
+```
