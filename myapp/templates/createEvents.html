@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card-header bg-custom">Events</div>
+<div class="card-body">
+	<button onclick="location.href='/calendar-view'" type="button">
+		View Event Calendar</button>
+	<button type="button" id='btn' class="btn btn-warning mb-2">Create Event</button>
+	<div id="createEvent">
+		<form action="{{ url_for('create_event') }}" method="POST">
+			{{ form.hidden_tag() }}
+			<div class="form-group mb-3">
+				{{ form.event.label(class="form-control-label") }}
+				{{ form.event(class="form-control") }}
+			</div>
+			<div class="form-group mb-3">
+				{{ form.time.label(class="form-control-label") }}
+				{{ form.time(class="form-control") }}
+			</div>
+			{{ form.submit(class="btn btn-outline-primary") }}
+		</form>
+	</div>
+</div>
+</div>
+</div>
+
+{% endblock %}

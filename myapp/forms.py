@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField, IntegerField
 from wtforms.validators import DataRequired, Email
 
 class SignupForm(FlaskForm):
@@ -22,3 +22,7 @@ class FlashCardForm(FlaskForm):
     back = StringField('Back', validators=[DataRequired()])
     submit = SubmitField('Create')
 
+class EventsForm(FlaskForm):
+    event = StringField('Event', validators=[DataRequired()])
+    time = IntegerField('Time')
+    submit = SubmitField('Create Event')
