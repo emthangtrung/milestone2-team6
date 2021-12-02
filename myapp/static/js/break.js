@@ -1,4 +1,4 @@
-function showbreakTimer() {
+function showtimerbreak() {
     $(".minutes").html(minutes);
     if (seconds < 10) {
         $(".seconds").html("0" + seconds);
@@ -11,57 +11,57 @@ function showbreakTimer() {
 
 function stopbreak() {
     timerFlag = 0;
-    pausebreakFlag = 0;
-    minutes = 25;
+    pauseFlag = 0;
+    minutes = 5;
     seconds = 0;
-    showbreakTimer();
-    $(".startbreak-stopbreak").html("startbreak");
+    showtimerbreak();
+    $(".startbreak-stopbreak").html("Start");
     $(".pausebreak-area").hide();
     clearTimeout(t);
 }
 
 function startbreak() {
     timerFlag = 1;
-    pausebreakFlag = 0;
-    updatebreakTimer();
-    $(".startbreak-stopbreak").html("stopbreak");
+    pauseFlag = 0;
+    updateTimerbreak();
+    $(".startbreak-stopbreak").html("Stop");
     $(".pausebreak-area").show();
-    $(".pausebreak").text("pausebreak");
-    $(".startbreak-stopbreak-area").hide();
+    $(".pausebreak").text("Pause");
+    $(".startbreak-stopbreak-areabreak").hide();
 }
 
 function pausebreak() {
-    pausebreakFlag = 1;
+    pauseFlag = 1;
     clearTimeout(t);
-    $(".startbreak-stopbreak-area").show();
-    $(".pausebreak").html("resumebreak");
+    $(".startbreak-stopbreak-areabreak").show();
+    $(".pausebreak").html("Resume");
 }
 
 function resumebreak() {
-    pausebreakFlag = 0;
-    updatebreakTimer();
-    $(".pausebreak").html("pausebreak");
-    $(".startbreak-stopbreak-area").hide();
+    pauseFlag = 0;
+    updateTimerbreak();
+    $(".pausebreak").html("Pause");
+    $(".startbreak-stopbreak-areabreak").hide();
 }
 
-function updatebreakTimer() {
+function updateTimerbreak() {
     if (minutes == 0 && seconds == 0) {
-        console.log("Store to databse and reset");
+        console.log();
         // calling route to store date_time
         $.getJSON('/send_datetime', function () { });
-        minutes = 25;
+        minutes = 5;
         seconds = 0;
-        showbreakTimer();
+        showtimerbreak();
     }
     else if (seconds == 0) {
         minutes -= 1;
         seconds = 59;
-        showbreakTimer();
-        t = setTimeout(updatebreakTimer, 1000)
+        showtimerbreak();
+        t = setTimeout(updateTimerbreak, 1000)
     }
     else {
         seconds -= 1;
-        showbreakTimer();
-        t = setTimeout(updatebreakTimer, 1000)
+        showtimerbreak();
+        t = setTimeout(updateTimerbreak, 1000)
     }
 }
