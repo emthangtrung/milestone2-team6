@@ -274,7 +274,7 @@ def create_event():
         db.session.commit()
         flash('Event has been added')
         return redirect(url_for('create_event'))
-    return render_template("createEvent.html", form=form, user_events=user_events)
+    return render_template("createEvents.html", form=form, user_event=user_eve)
 
 #viewing calendar
 @myapp_obj.route("/calendar-view", methods=['GET', 'POST'])
