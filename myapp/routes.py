@@ -286,14 +286,14 @@ def calender_view():
     Returns:
         back to viewCalendarV2 page
     """
-    
+   
     events = [
       {
           'todo' : 'Start book',
           'date' : '2021-12-01',
       },
       {
-          'todo' : 'Reconsider Life',
+          'todo' : 'Finish book',
           'date' : '2021-12-18',
       }
       ]
