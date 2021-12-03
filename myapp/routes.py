@@ -267,14 +267,14 @@ def create_event():
         Show their event block on the calender
     """
     form = EventsForm()
-    user_events = Events.query.filter_by(user_id=current_user).all()
+    user_events = Events.query.filter_by(user=current_user).all()
     if form.validate_on_submit():
-        new_event = Events(addevent=form.addevent.data, time=form.time.data,user_id=current_user)
+        new_event = Events(event=form.event.data, day=form.day.data,user=current_user)
         db.session.add(new_event)
         db.session.commit()
         flash('Event has been added')
         return redirect(url_for('create_event'))
-    return render_template("createEvents.html", form=form, user_event=user_eve)
+    return render_template("createEvents.html", form=form, user_events=user_events)
 
 #viewing calendar
 @myapp_obj.route("/calendar-view", methods=['GET', 'POST'])
@@ -286,7 +286,7 @@ def calender_view():
     Returns:
         back to viewCalendarV2 page
     """
-   
+  
     events = [
       {
           'todo' : 'Start book',

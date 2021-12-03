@@ -23,6 +23,6 @@ class FlashCardForm(FlaskForm):
     submit = SubmitField('Create')
 
 class EventsForm(FlaskForm):
-    addevent = StringField('Event', validators=[DataRequired()])
-    time = DateField('Time', validators=[DataRequired()])
+    event = StringField('Event', validators=[DataRequired()])
+    day = DateField('Day', format = '%Y-%m-%d', validators=[DataRequired()])
     submit = SubmitField('Create Event')

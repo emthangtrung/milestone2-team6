@@ -41,7 +41,7 @@ class Todo(db.Model):
 #event list for calendar
 class Events(db.Model):
     id = db.Column(db.Integer, primary_key = True)
-    addevent = db.Column(db.Text)
-    time = db.Column(db.Date)
+    event = db.Column(db.String(50))
+    day = db.Column(db.Date)
     
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)

@@ -11,12 +11,12 @@
 					<form action="{{ url_for('create_event') }}" method="POST">
 						{{ form.hidden_tag() }}
 						<div class="form-group mb-3">
-							{{ form.addevent.label(class="form-control-label") }}
-							{{ form.addevent(class="form-control") }}
+							{{ form.event.label(class="form-control-label") }}
+							{{ form.event(class="form-control") }}
 						</div>
 						<div class="form-group mb-3">
-							{{ form.time.label(class="form-control-label") }}
-							{{ form.time(class="form-control") }}
+							{{ form.day.label(class="form-control-label") }}
+							{{ form.day(class="form-control") }}
 						</div>
 						{{ form.submit(class="btn btn-outline-primary") }}
 					</form>
