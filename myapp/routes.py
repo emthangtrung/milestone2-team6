@@ -275,28 +275,17 @@ def create_event():
         flash('Event has been added')
         return redirect(url_for('create_event'))
     return render_template("createEvents.html", form=form, user_events=user_events)
-
+    return(user_events)
 #viewing calendar
 @myapp_obj.route("/calendar-view", methods=['GET', 'POST'])
 @login_required
 def calender_view():
 
-    """user can see their even block on the calendar once they have made one
+    """user can see their event block on the calendar once they have made one
 
     Returns:
         back to viewCalendarV2 page
     """
-  
-    events = [
-      {
-          'todo' : 'Start book',
-          'date' : '2021-12-01',
-      },
-      {
-          'todo' : 'Finish book',
-          'date' : '2021-12-18',
-      }
-      ]
-
+    events = Events.query.all()
     return render_template("viewCalendarV2.html", events = events)
 
