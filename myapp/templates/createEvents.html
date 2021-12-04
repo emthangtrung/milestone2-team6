@@ -6,7 +6,7 @@
 		<div class="card mt-4 border-info w-50 text-center">
 			<div class="card-header bg-custom">Events</div>
 			<div class="card-body">
-				<button type="button" id='btn' class="btn btn-warning mb-2">Create Event</button>
+				<button type="button" id='btn' class="btn btn-warning mb-2" onclick="location.href='/calendar-view'">View Calendar</button>
 				<div id="createEvent">
 					<form action="{{ url_for('create_event') }}" method="POST">
 						{{ form.hidden_tag() }}
