@@ -335,3 +335,9 @@ def convert_to_pdf(html):
     response.headers["Content-Type"] = "application/pdf"
     response.headers["Content-Disposition"] = "inline; filename=flashcard.pdf"
     return response
+
+#makes a graph for the user so they can vizually see their hours worked
+@myapp_obj.route('/view-hours-worked')
+@login_required
+def hours_worked():
+    return render_template('projectsGraph.html')
