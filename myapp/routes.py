@@ -3,10 +3,12 @@ from flask.templating import render_template_string
 from myapp import myapp_obj, db
 from .forms import LoginForm, SignupForm, FlashCardForm, EventsForm
 from .models import User, Todo, FlashCard, Events
-from flask import url_for, render_template, redirect, request, flash, abort
+from flask import url_for, render_template, redirect, request, flash, abort, session
 from flask_login import login_user, current_user, logout_user, login_required
 from sqlalchemy import exc
 from datetime import datetime, date, timedelta
+from flask_socketio import SocketIO, join_room, leave_room, emit
+
 
 # import for render markdown
 import markdown
@@ -300,3 +302,44 @@ def calender_view():
 
     return render_template("viewCalendarV2.html", events = events)
 
+
+# Chat room section
+socketio = SocketIO(myapp_obj, manage_session=False)
+@myapp_obj.route('/chatRoom', methods=['GET', 'POST'])
+def index():
+    return render_template('chatRoom.html')
+
+@myapp_obj.route('/chat', methods=['GET', 'POST'])
+def chat():
+    if(request.method=='POST'):
+        username = request.form['username']
+        room = request.form['room']
+        #Store the data in session
+        session['username'] = username
+        session['room'] = room
+        return render_template('chat.html', session = session)
+    else:
+        if(session.get('username') is not None):
+            return render_template('chat.html', session = session)
+        else:
+            return redirect(url_for('index'))
+
+@socketio.on('join', namespace='/chat')
+def join(message):
+    room = session.get('room')
+    join_room(room)
+    emit('status', {'msg':  session.get('username') + ' has entered the room!'}, room=room)
+
+@socketio.on('text', namespace='/chat')
+def text(message):
+    room = session.get('room')
+    emit('message', {'msg': session.get('username') + ' : ' + message['msg']}, room=room)
+
+@socketio.on('left', namespace='/chat')
+def left(message):
+    room = session.get('room')
+    username = session.get('username')
+    leave_room(room)
+    session.clear()
+    emit('status', {'msg': username + ' has left the room.'}, room=room)
+# end chat room section -------------------------------------------------------->
