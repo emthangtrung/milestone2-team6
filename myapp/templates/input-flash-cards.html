@@ -25,7 +25,10 @@
         </div>
         <div class="col-md-12 p-4">
             {% if user_flashcards %}
-            <div class="row p-2">
+            <div class="row p-3">
+		<div class="mb-3 text-center">
+                    <a role="button" href="{{ url_for('print_all_flashcards') }}" class="btn btn-success">Print all Flashcards</a>
+                </div>
                 {% for flashcard in user_flashcards %}
                 <div class="col-md-4">
                     <div class="card shadow-sm rounded-end mb-3 p-2">
@@ -34,6 +37,7 @@
                           <p class="card-text">{{ flashcard.front }}</p>
                           <p class="card-text">{{ flashcard.back }}</p>
                           <div>
+			    <a role="button" href="{{ url_for('print_single_flashcard', id=flashcard.id) }}" class="btn btn-sm btn-success">Print</a>
                             <a role="button" href="{{ url_for('delete_flashcard', id=flashcard.id) }}" class="btn btn-sm btn-danger">Delete</a>
                           </div>
                         </div>
