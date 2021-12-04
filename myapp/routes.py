@@ -33,8 +33,8 @@ def home():
 @myapp_obj.route('/signup', methods=['GET', 'POST'])
 def signup():
     """
-    Navigate to sign up page 
-    
+    Navigate to sign up page
+
     Returns:
 	  redirecting back to the login page
     """
@@ -68,12 +68,10 @@ def signup():
 @myapp_obj.route('/login', methods=['GET', 'POST'])
 def login():
     """
-    Navigate to log in page 
- 
+    Navigate to log in page
+
     Returns:
 	    redirecting back to the page
-     or 
-	    redirecting to input flashcard page
     """
     form = LoginForm()
     # Check form validation
@@ -96,7 +94,7 @@ def login():
 def logout():
     """
     Log out and redirect back to the login page
-         
+
     Returns:
         redirecting back to the log in page
     """
@@ -269,37 +267,26 @@ def create_event():
         Show their event block on the calender
     """
     form = EventsForm()
-    user_events = Events.query.filter_by(user_id=current_user).all()
+    user_events = Events.query.filter_by(user=current_user).all()
     if form.validate_on_submit():
-        new_event = Events(addevent=form.addevent.data, time=form.time.data,user_id=current_user)
+        new_event = Events(event=form.event.data, day=form.day.data,user=current_user)
         db.session.add(new_event)
         db.session.commit()
         flash('Event has been added')
         return redirect(url_for('create_event'))
-    return render_template("createEvents.html", form=form, user_event=user_eve)
-
+    return render_template("createEvents.html", form=form, user_events=user_events)
+    return(user_events)
 #viewing calendar
 @myapp_obj.route("/calendar-view", methods=['GET', 'POST'])
 @login_required
 def calender_view():
 
-    """user can see their even block on the calendar once they have made one
+    """user can see their event block on the calendar once they have made one
 
     Returns:
         back to viewCalendarV2 page
     """
-    
-    events = [
-      {
-          'todo' : 'Start book',
-          'date' : '2021-12-01',
-      },
-      {
-          'todo' : 'Reconsider Life',
-          'date' : '2021-12-18',
-      }
-      ]
-
+    events = Events.query.all()
     return render_template("viewCalendarV2.html", events = events)
 
 
@@ -343,3 +330,57 @@ def left(message):
     session.clear()
     emit('status', {'msg': username + ' has left the room.'}, room=room)
 # end chat room section -------------------------------------------------------->
+# print all flashcards
+@myapp_obj.route('/print-all-flashcards/')
+@login_required
+def print_all_flashcards():
+
+    '''
+    It retrieves all the flashcards for the logged in user and prints it to pdf
+
+    Returns:
+            pdf file with the all flashcards for the logged in user
+    '''
+    user_flashcards = FlashCard.query.filter_by(user=current_user).all()
+    html = render_template('allFlashcards.html', user_flashcards=user_flashcards)
+
+    return convert_to_pdf(html)
+
+# print a single flashcard
+@myapp_obj.route('/print-single-flashcard/<int:id>')
+@login_required
+def print_single_flashcard(id):
+
+    '''
+    It retrieves a flashcard with given id for the logged in user and prints it to pdf format
+
+    Returns:
+            pdf file with the single flashcard
+    '''
+    flashcard = FlashCard.query.get_or_404(id)
+    if flashcard.user != current_user:
+        abort(403)
+    html = render_template('singleFlashcard.html', flashcard=flashcard)
+
+    return convert_to_pdf(html)
+
+# convert flashcard to pdf to print
+def convert_to_pdf(html):
+
+    '''
+    This function takes the html page as an input and returns a pdf format file for downloading
+
+    Returns:
+            A pdf file with one or multiple pages containing flashcards
+    '''
+    pdf = pdfkit.from_string(html, False)
+    response = make_response(pdf)
+    response.headers["Content-Type"] = "application/pdf"
+    response.headers["Content-Disposition"] = "inline; filename=flashcard.pdf"
+    return response
+
+#makes a graph for the user so they can vizually see their hours worked
+@myapp_obj.route('/view-hours-worked')
+@login_required
+def hours_worked():
+    return render_template('projectsGraph.html')

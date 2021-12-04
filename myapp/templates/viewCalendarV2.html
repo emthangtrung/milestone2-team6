@@ -18,11 +18,11 @@
 
 	let calendar = new FullCalendar.Calendar
 	(calendarEl, {
-	events : [ 
+	events : [
 	{% for event in events %}   
 	    {
-		title : '{{event.todo}}',
-		start  : '{{event.date}}',
+		title : '{{event.event}}',
+		start  : '{{event.day}}',
 	    },
 	{% endfor %} 	
 	 ]
