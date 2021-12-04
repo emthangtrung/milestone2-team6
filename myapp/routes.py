@@ -31,8 +31,8 @@ def home():
 @myapp_obj.route('/signup', methods=['GET', 'POST'])
 def signup():
     """
-    Navigate to sign up page 
-    
+    Navigate to sign up page
+
     Returns:
 	  redirecting back to the login page
     """
@@ -66,12 +66,10 @@ def signup():
 @myapp_obj.route('/login', methods=['GET', 'POST'])
 def login():
     """
-    Navigate to log in page 
- 
+    Navigate to log in page
+
     Returns:
 	    redirecting back to the page
-     or 
-	    redirecting to input flashcard page
     """
     form = LoginForm()
     # Check form validation
@@ -94,7 +92,7 @@ def login():
 def logout():
     """
     Log out and redirect back to the login page
-         
+
     Returns:
         redirecting back to the log in page
     """
@@ -289,3 +287,51 @@ def calender_view():
     events = Events.query.all()
     return render_template("viewCalendarV2.html", events = events)
 
+# print all flashcards
+@myapp_obj.route('/print-all-flashcards/')
+@login_required
+def print_all_flashcards():
+
+    '''
+    It retrieves all the flashcards for the logged in user and prints it to pdf
+
+    Returns:
+            pdf file with the all flashcards for the logged in user
+    '''
+    user_flashcards = FlashCard.query.filter_by(user=current_user).all()
+    html = render_template('allFlashcards.html', user_flashcards=user_flashcards)
+
+    return convert_to_pdf(html)
+
+# print a single flashcard
+@myapp_obj.route('/print-single-flashcard/<int:id>')
+@login_required
+def print_single_flashcard(id):
+
+    '''
+    It retrieves a flashcard with given id for the logged in user and prints it to pdf format
+
+    Returns:
+            pdf file with the single flashcard
+    '''
+    flashcard = FlashCard.query.get_or_404(id)
+    if flashcard.user != current_user:
+        abort(403)
+    html = render_template('singleFlashcard.html', flashcard=flashcard)
+
+    return convert_to_pdf(html)
+
+# convert flashcard to pdf to print
+def convert_to_pdf(html):
+
+    '''
+    This function takes the html page as an input and returns a pdf format file for downloading
+
+    Returns:
+            A pdf file with one or multiple pages containing flashcards
+    '''
+    pdf = pdfkit.from_string(html, False)
+    response = make_response(pdf)
+    response.headers["Content-Type"] = "application/pdf"
+    response.headers["Content-Disposition"] = "inline; filename=flashcard.pdf"
+    return response
