@@ -29,7 +29,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 {% if current_user.is_authenticated %}
-                <ul class="navbar-nav ml-auto">
+                <ul class="snip1175 navbar-nav mr-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="/input-flashcards">Input Flashcard</a>
                     </li>
@@ -54,19 +54,22 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/view-hours-worked">View Hours</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
                 </ul>
                 {% endif %}
                 <ul class="navbar-nav ms-md-auto">
                     {% if current_user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="/logout">Logout</a>
+                        <!-- <a class="nav-link" href="/logout">Logout</a> -->
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
+                        <!-- <a class="nav-link" href="/login">Login</a> -->
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/signup">Register</a>
+                        <!-- <a class="nav-link" href="/signup">Register</a> -->
                     </li>
                     {% endif %}
                 </ul>

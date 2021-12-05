@@ -1,19 +1,17 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 {% block content %}
-<div class="container p-4">
-    <div class="jumbotron">
-        <h1 class="display-4">Welcome to StudyHub</h1>
-        <h3 class="lead">CMPE 131 Milestone 2</h3>
-        <h4>Group 6</h4>
-        <hr class="my-4">
-        {% if not current_user.is_authenticated %}
-        <p class="lead">
-          <a class="btn btn-primary btn-lg" href="/login" role="button">Login</a>
-          <a class="btn btn-warning btn-lg" href="/signup" role="button">Register</a>
-        </p>
+<div class="home_main">
+  <div class="home_welcome">
+    <div class="home_content">
+      <h1 class="display-4">Welcome to StudyHub</h1>
+      {% if not current_user.is_authenticated %}
+      <div class="menu" onclick="this.classList.toggle('open')">
+        <div class="button" onclick="location.href='/';"></div>
+        <div class="button" onclick="location.href='/login';"></div>
+        <div class="button" onclick="location.href='/signup';"></div>
         {% endif %}
+      </div>
     </div>
+  </div>
 </div>
-
 {% endblock %}
-
