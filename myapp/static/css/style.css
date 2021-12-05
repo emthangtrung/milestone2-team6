@@ -478,8 +478,7 @@
 }
 
 /* Login.html */
-.login_main{
-    background-image: url(../img/b2.jpg);
+.bg_content{
     background-attachment: fixed;
     height: 100vh;
     background-size: cover;
@@ -496,4 +495,10 @@
     padding-top: 40px;
     padding-bottom: 40px;
     position: relative;
+}
+.login_main{
+    background-image: url(../img/b2.jpg);
+}
+.signup_main{
+    background-image: url(../img/b3.jpg);
 }
