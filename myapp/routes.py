@@ -1,8 +1,8 @@
 import os
 from flask.templating import render_template_string
 from myapp import myapp_obj, db
-from .forms import LoginForm, SignupForm, FlashCardForm, EventsForm
-from .models import User, Todo, FlashCard, Events
+from .forms import LoginForm, SignupForm, FlashCardForm, EventsForm, ProjectsForm
+from .models import User, Todo, FlashCard, Events, Projects
 from flask import url_for, render_template, redirect, request, flash, abort, session
 from flask_login import login_user, current_user, logout_user, login_required
 from sqlalchemy import exc
@@ -380,7 +380,24 @@ def convert_to_pdf(html):
     return response
 
 #makes a graph for the user so they can vizually see their hours worked
-@myapp_obj.route('/view-hours-worked')
+@myapp_obj.route('/view-hours-worked', methods=['GET', 'POST'])
 @login_required
 def hours_worked():
-    return render_template('projectsGraph.html')
+    """User can add amount of hours worked on a project and hours needed to be completed
+       The hours get saved onto the database
+
+    Returns:
+       Lets the user know that the hours have been added. Gets redirected to the page.
+       Once redirected the graph updates
+    """   
+
+    form = ProjectsForm()
+    user_projects = Projects.query.filter_by(user=current_user).all()
+    if form.validate_on_submit():
+        total_hours = Projects(uncompleted_proj=form.uncompleted_proj.data, completed_proj=form.completed_proj.data, user=current_user)
+        db.ssession.add(total_hours)
+        db.session.commit()
+        flash('Your Have Been Added')
+        return redirect(url_for('hours_worked'))
+    return render_template('projectsGraph.html', form=form, user_projects=user_projects)
+

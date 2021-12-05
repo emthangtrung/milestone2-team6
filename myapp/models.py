@@ -13,6 +13,7 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(80))
     flashcards = db.relationship('FlashCard', backref='user', lazy=True)
     events = db.relationship('Events', backref='user', lazy=True)
+    projects = db.relationship('Projects', backref='user', lazy=True)
 
     def __init__(self, username, email):
         self.username = username
@@ -44,4 +45,12 @@ class Events(db.Model):
     event = db.Column(db.String(50))
     day = db.Column(db.Date)
     
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+#database variables for project hours
+class Projects(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    completed_proj = db.Column(db.Integer)
+    uncompleted_proj = db.Column(db.Integer)
+
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)

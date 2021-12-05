@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, DateField
+from wtforms import StringField, PasswordField, SubmitField, DateField, IntegerField
 from wtforms.validators import DataRequired, Email
 
 class SignupForm(FlaskForm):
@@ -26,3 +26,8 @@ class EventsForm(FlaskForm):
     event = StringField('Event', validators=[DataRequired()])
     day = DateField('Day', format = '%Y-%m-%d', validators=[DataRequired()])
     submit = SubmitField('Create Event')
+
+class ProjectsForm(FlaskForm):
+    completed_proj = IntegerField('Completed', validators = [DataRequired()])
+    uncompleted_proj = IntegerField('Uncompleted', validators = [DataRequired()])
+    submit = SubmitField('Add Hours')
