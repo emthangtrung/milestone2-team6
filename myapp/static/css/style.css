@@ -502,3 +502,86 @@
 .signup_main{
     background-image: url(../img/b3.jpg);
 }
+
+/*  */
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500,800);
+.snip1175 {
+  font-family: 'Raleway', Arial, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.snip1175 * {
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.snip1175 li {
+  display: inline-block;
+  list-style: outside none none;
+  margin: 0 1.2em;
+  overflow: hidden;
+}
+.snip1175 a {
+  padding: 0 0.5em 0 0.2em;
+  color: rgba(0, 0, 0, 0.527);
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  text-decoration: none;
+}
+.snip1175 a:before,
+.snip1175 a:after {
+  position: absolute;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.snip1175 a:before {
+  right: 100%;
+  display: block;
+  width: 3px;
+  height: 100%;
+  content: "";
+  background-color: #f39c12;
+}
+.snip1175 a:after {
+  padding: 0 0.5em 0 0.2em;
+  position: absolute;
+  right: 100%;
+  top: 0;
+  content: attr(data-hover);
+  color: rgb(0, 0, 0);
+  white-space: nowrap;
+}
+.snip1175 li:hover a,
+.snip1175 .current a {
+  transform: translateX(100%);
+}
+
+/*  */
+.brand_logo{
+    width: 40px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 576px){
+
+}
+
+/*  */
+.todo{
+    background-image: url(../img/b18.jpg);
+    background-attachment: fixed;
+    display: flex;
+    position: relative;
+    height: 100vh;
+}
+.todo_main{
+    width: 40%;
+    margin: auto;
+    display: block;
+    align-items: center;
+    padding: 40px;
+    background-color: rgb(245 245 245 / 80%);
+    border-radius: 5px;
+}

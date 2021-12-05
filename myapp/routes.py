@@ -294,14 +294,23 @@ def calender_view():
 socketio = SocketIO(myapp_obj, manage_session=False)
 @myapp_obj.route('/chatRoom', methods=['GET', 'POST'])
 def index():
-    return render_template('chatRoom.html')
+    """[This function is to return to chatRoom.html]
 
+    Returns:
+        [Template]: [chatRoom.html]
+    """    
+    return render_template('chatRoom.html')
+# Post method
 @myapp_obj.route('/chat', methods=['GET', 'POST'])
 def chat():
+    """[Get POST method from user and store data in session]
+
+    Returns:
+        [data]: [Return to chat.html]
+    """    
     if(request.method=='POST'):
         username = request.form['username']
         room = request.form['room']
-        #Store the data in session
         session['username'] = username
         session['room'] = room
         return render_template('chat.html', session = session)
@@ -310,20 +319,35 @@ def chat():
             return render_template('chat.html', session = session)
         else:
             return redirect(url_for('index'))
-
+# Display message
 @socketio.on('join', namespace='/chat')
 def join(message):
+    """[Display message]
+
+    Args:
+        message ([string]): [output message]
+    """    
     room = session.get('room')
     join_room(room)
     emit('status', {'msg':  session.get('username') + ' has entered the room!'}, room=room)
 
 @socketio.on('text', namespace='/chat')
 def text(message):
+    """[Get the room data]
+
+    Args:
+        message ([string]): [Display room]
+    """    
     room = session.get('room')
     emit('message', {'msg': session.get('username') + ' : ' + message['msg']}, room=room)
 
 @socketio.on('left', namespace='/chat')
 def left(message):
+    """[Display message when user left the room]
+
+    Args:
+        message ([string]): [Display message]
+    """    
     room = session.get('room')
     username = session.get('username')
     leave_room(room)
