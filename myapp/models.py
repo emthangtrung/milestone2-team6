@@ -45,3 +45,11 @@ class Events(db.Model):
     day = db.Column(db.Date)
     
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+#database variables for project hours
+class Projects(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    completed_proj = db.Column(db.Integer)
+    uncompleted_proj = db.Column(db.Integer)
+
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
