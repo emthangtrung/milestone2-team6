@@ -28,6 +28,8 @@ class EventsForm(FlaskForm):
     submit = SubmitField('Create Event')
 
 class ProjectsForm(FlaskForm):
-    completed_proj = IntegerField('Completed', validators = [DataRequired()])
-    uncompleted_proj = IntegerField('Uncompleted', validators = [DataRequired()])
+    nameOfCase = StringField('Case', validators = [DataRequired()])
+    nameOfPerson = StringField('Name', validators = [DataRequired()])
+    dateStart = DateField('Day', format = '%Y-%m-%d', validators=[DataRequired()])
+    dateEnd = DateField('Day', format = '%Y-%m-%d', validators=[DataRequired()])
     submit = SubmitField('Add Hours')

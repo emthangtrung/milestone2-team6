@@ -1,5 +1,39 @@
 {% extends "base.html" %}
 {% block content %}
+<head>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript">
+		google.charts.load('current', {'packages':['timeline']});
+google.charts.setOnLoadCallback(drawChart);
+function drawChart() {
+	var container = document.getElementById('timeline');
+	var chart = new google.visualization.Timeline(container);
+	var dataTable = new google.visualization.DataTable();
 
+	dataTable.addColumn({ type: 'string', id: 'Case' });
+	dataTable.addColumn({ type: 'string', id: 'Name' });
+	dataTable.addColumn({ type: 'date', id: 'Start' });
+	dataTable.addColumn({ type: 'date', id: 'End' });
+	dataTable.addRows([
+		[ 'Login', 'Name', new Date(2021, 10, 30), new Date(2021, 12, 4) ],
+		[ 'HTML', 'Some Name', new Date(2021, 10, 4),  new Date(2021, 10, 15) ],
+		[ 'CSS', 'Other Name', new Date(2021, 11, 1),  new Date(2021, 11, 4) ],
+		          
+		          
+		]);
+	          
+	var options = {
+		timeline: { colorByRowLabel: true },
+		timeline: { showRowLabels: false },
+		avoidOverlappingGridLines: false
+	};
+
+	chart.draw(dataTable);
+}
+	</script>
+</head>
+<body>
+	<div id="timeline" style="height: 180px;"></div>
+</body>
 
 {% endblock %}
