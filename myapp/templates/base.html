@@ -19,9 +19,11 @@
 
 <body>
     <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-custom">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">StudyHub</a>
+            <a class="navbar-brand" href="/">
+                <img class="brand_logo" onclick="location.href='/';" src="../static/img/logo.png" alt="">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -31,31 +33,31 @@
                 {% if current_user.is_authenticated %}
                 <ul class="snip1175 navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/input-flashcards">Input Flashcard</a>
+                        <a class="nav-link" data-hover="Input Flashcard" href="/input-flashcards">Input Flashcard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/pomorodo">Promorodo</a>
+                        <a class="nav-link" data-hover="Promorodo" href="/pomorodo">Promorodo</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/todolist">To do list</a>
+                        <a class="nav-link" data-hover="To do list" href="/todolist">To do list</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/calendar-view">Calendar</a>
+                        <a class="nav-link" data-hover="Calendar" href="/calendar-view">Calendar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/download">Download PDF</a>
+                        <a class="nav-link" data-hover="Download PDF" href="/download">Download PDF</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/renderFlashCard">Render Markdown </a>
+                        <a class="nav-link" data-hover="Render Markdown" href="/renderFlashCard">Render Markdown</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/chatRoom">Create Chat Room</a>
+                        <a class="nav-link" data-hover="Create Chat Room" href="/chatRoom">Chat Room</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/view-hours-worked">View Hours</a>
+                        <a class="nav-link" data-hover="View Hours" href="/view-hours-worked">View Hours</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/logout">Logout</a>
+                        <a class="nav-link" data-hover="Logout" href="/logout">Logout</a>
                     </li>
                 </ul>
                 {% endif %}
