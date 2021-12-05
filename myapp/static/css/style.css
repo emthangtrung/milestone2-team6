@@ -559,14 +559,29 @@
 }
 
 /*  */
-.nav_brand{
-
-}
 .brand_logo{
     width: 40px;
     cursor: pointer;
 }
 
 @media screen and (max-width: 576px){
- 
+
+}
+
+/*  */
+.todo{
+    background-image: url(../img/b18.jpg);
+    background-attachment: fixed;
+    display: flex;
+    position: relative;
+    height: 100vh;
+}
+.todo_main{
+    width: 40%;
+    margin: auto;
+    display: block;
+    align-items: center;
+    padding: 40px;
+    background-color: rgb(245 245 245 / 80%);
+    border-radius: 5px;
 }
