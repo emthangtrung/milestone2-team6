@@ -585,3 +585,17 @@
     background-color: rgb(245 245 245 / 80%);
     border-radius: 5px;
 }
+.carousel-item {
+    height: 25rem;
+    background: #f37021;
+    color: white;
+    position: relative;
+}
+
+.container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-bottom: 50px;
+}

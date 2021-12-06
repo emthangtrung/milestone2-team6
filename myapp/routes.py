@@ -427,3 +427,7 @@ def hours_worked():
         return redirect(url_for('hours_worked'))
     return render_template('projectsGraph.html', form=form, user_projects=user_projects)
 
+@myapp_obj.route("/splash")
+def splashpage():
+    return render_template("splash.html")
+
