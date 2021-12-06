@@ -420,7 +420,8 @@ def hours_worked():
     if form.validate_on_submit():
         time_worked = Projects(dateStart=form.dateStart.data, dateEnd=form.dateEnd.data, user = current_user)
         names_worked = Projects(nameOfCase=form.nameOfCase.data, nameOfPerson=form.nameOfPerson.data, user = current_user)
-        db.session.add(time_worked, names_worked)
+        db.session.add(time_worked)
+        db.session.add(names_worked)
         db.session.commit()
         flash('Your Hours Have Been Added')
         return redirect(url_for('hours_worked'))
