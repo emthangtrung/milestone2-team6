@@ -50,7 +50,10 @@ class Events(db.Model):
 #database variables for project hours
 class Projects(db.Model):
     id = db.Column(db.Integer, primary_key = True)
-    completed_proj = db.Column(db.Integer)
-    uncompleted_proj = db.Column(db.Integer)
+    proj_name = db.Column(db.String(50))
+    nameOfCase = db.Column(db.String(50))
+    nameOfPerson = db.Column(db.String(50))
+    dateStart = db.Column(db.Date)
+    dateEnd = db.Column(db.Date)
 
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)

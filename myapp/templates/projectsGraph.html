@@ -2,4 +2,86 @@
 {% block content %}
 
 
+
+<div class="accordion accordion-flush" id="accordionFlushExample">
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="flush-headingOne">
+			<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+				Add Hours Worked On Project
+			</button>
+		</h2>
+		<div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+			      
+			<div class="row">
+				<div class="d-flex justify-content-center col-md-12">
+					<div class="card mt-4 border-info w-50 text-center">
+						<div class="card-body">
+							<div id="addHours">
+								<form action="{{ url_for('hours_worked') }}" method="POST">
+									{{ form.hidden_tag() }}
+									<div class="form-group mb-3">
+										{{ form.nameOfCase.label(class="form-control-label") }}
+										{{ form.nameOfCase(class="form-control") }}
+									</div>
+									<div class="form-group mb-3">
+										{{ form.nameOfPerson.label(class="form-control-label") }}
+										{{ form.nameOfPerson(class="form-control") }}
+									</div>
+									<div class="form-group mb-3">
+										{{ form.dateStart.label(class="form-control-label") }}
+										{{ form.dateStart(class="form-control") }}
+									</div>
+									<div class="form-group mb-3">
+										{{ form.dateEnd.label(class="form-control-label") }}
+										{{ form.dateEnd(class="form-control") }}
+									</div>
+									{{ form.submit(class="btn btn-outline-primary") }}
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<head>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript">
+		google.charts.load('current', {'packages':['timeline']});
+google.charts.setOnLoadCallback(drawChart);
+function drawChart() {
+	var container = document.getElementById('timeline');
+	var chart = new google.visualization.Timeline(container);
+	var dataTable = new google.visualization.DataTable();
+
+	dataTable.addColumn({ type: 'string', id: 'Case' });
+	dataTable.addColumn({ type: 'string', id: 'Name' });
+	dataTable.addColumn({ type: 'date', id: 'Start' });
+	dataTable.addColumn({ type: 'date', id: 'End' });
+	dataTable.addRows([
+		
+		[ 'Login', 'Name', new Date(2021, 10, 30), new Date(2021, 12, 4) ],
+		[ 'HTML', 'Some Name', new Date(2021, 10, 4),  new Date(2021, 10, 15) ],
+		[ 'CSS', 'Other Name', new Date(2021, 11, 1),  new Date(2021, 11, 4) ],
+		
+		          
+		]);
+	          
+	var options = {
+		timeline: { colorByRowLabel: true },
+		timeline: { showRowLabels: false },
+		avoidOverlappingGridLines: false
+	};
+
+	chart.draw(dataTable);
+}
+	</script>
+</head>
+<body>
+	<div id="timeline" style="height: 180px;"></div>
+</body>
+
 {% endblock %}
