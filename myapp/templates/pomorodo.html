@@ -17,7 +17,7 @@
 
                 <div>
                     <div>
-                        <span class="l1-txt2 p-b-9 minutes">5</span>
+                        <span class="l1-txt2 p-b-9 minutes">25</span>
                         <span class="s1-txt1 where1 p-l-35">Minutes</span>
                     </div>
 
@@ -28,14 +28,22 @@
                 </div>
                 <div>
                     <a href="#" class="size2 m1-txt1 flex-c-m how-btn1 trans-04 start-stop" onclick="timerFlag == 0? start(): stop();">
-            Start
-          </a>
+                        Start
+                    </a>
                 </div>
                 <div>
                     <a href="#" class="size2 m1-txt1 flex-c-m how-btn1 trans-04 pause" onclick="pauseFlag == 1?resume(): pause();">
-            Pause
-          </a>
+                        Pause
+                    </a>
                 </div>
+                <script>
+                    $(".pause-area").hide();
+                    var minutes = 25;
+                    var seconds = 0;
+                    var timerFlag = 0;
+                    var pauseFlag = 0
+                </script>
+
             </div>
             <div class="tab-pane fade" id="break" role="tabpanel" aria-labelledby="break-tab">
                 <h3>Break Timer!</h3>
@@ -53,14 +61,21 @@
                 </div>
                 <div>
                     <a href="#" class="size2 m1-txt1 flex-c-m how-btn1 trans-04 startbreak-stopbreak" onclick="timerFlag == 0? startbreak(): stopbreak();">
-            Start
-          </a>
+                        Start
+                    </a>
                 </div>
                 <div>
                     <a href="#" class="size2 m1-txt1 flex-c-m how-btn1 trans-04 pausebreak" onclick="pauseFlag == 1?resumebreak(): pausebreak();">
-            Pause
-          </a>
+                        Pause
+                    </a>
                 </div>
+                <script>
+                    $(".pausebreak-area").hide();
+                    var minutes = 5;
+                    var seconds = 0;
+                    var timerFlag = 0;
+                    var pauseFlag = 0
+                </script>
             </div>
             <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
         </div>
@@ -68,25 +83,11 @@
     </div>
 </div>
 
-<script src="{{ url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-<script>
-    $(".pause-area").hide();
-    var minutes = 25;
-    var seconds = 0;
-    var timerFlag = 0;
-    var pauseFlag = 0
-</script>
 
-<script>
-    $(".pausebreak-area").hide();
-    var minutes = 5;
-    var seconds = 0;
-    var timerFlag = 0;
-    var pauseFlag = 0
-</script>
 
 <script src="{{ url_for('static', filename='js/pomorodo.js') }}"></script>
 <script src="{{ url_for('static', filename='js/break.js') }}"></script>
