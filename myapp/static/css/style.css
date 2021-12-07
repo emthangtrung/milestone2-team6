@@ -650,23 +650,47 @@
 
 .carousel-item {
     height: 50rem;
-    background: #f37021;
+    background: rgba( 255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37);
+    backdrop-filter: blur( 4px);
+    -webkit-backdrop-filter: blur( 4px);
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18);
+    color: white;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+.carousel-img {
+    height: 50rem;
+    background: #fcf0cf;
     color: white;
     position: relative;
 }
 
+.splash-back {
+    background-image: url(../img/b3.jpg);
+    background-attachment: fixed;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-tap-highlight-color: transparent;
+}
 
-/* .container {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding-bottom: 50px;
-} */
+.tomato {
+    background-image: url(../img/tomato.png);
+    background-attachment: fixed;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-tap-highlight-color: transparent;
+}
 
-.carousel-img {
-    height: 50rem;
-    background: #f37021;
-    color: white;
-    position: relative;
+.text-color--black {
+    color: black;
+}
+
+.text-font {
+    font-family: 'Brygada 1918', serif;
 }
