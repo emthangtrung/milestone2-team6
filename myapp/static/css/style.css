@@ -170,8 +170,8 @@
 }
 
 .chat_room {
-    font-family: "Comforter Brush", cursive;
-    font-size: 60px;
+    /* font-family: "Comforter Brush", cursive;
+    font-size: 60px; */
     padding-top: 50px;
 }
 
@@ -628,7 +628,7 @@
 @media screen and (max-width: 576px) {}
 
 
-/*  */
+/* Todo */
 
 .todo {
     background-image: url(../img/b18.jpg);
@@ -647,26 +647,4 @@
     background-color: rgb(245 245 245 / 80%);
     border-radius: 5px;
 }
-
-.carousel-item {
-    height: 50rem;
-    background: #f37021;
-    color: white;
-    position: relative;
-}
-
-
-/* .container {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding-bottom: 50px;
-} */
-
-.carousel-img {
-    height: 50rem;
-    background: #f37021;
-    color: white;
-    position: relative;
-}
+/*  */
