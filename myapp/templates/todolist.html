@@ -1,30 +1,29 @@
-{% extends 'base.html' %}
-{% block content %}
-<div class="todo">
-    <div class="todo_main">
-        <div style="margin-top: 25px;" class="ui container">
-            <h1>To Do List</h1>
-            <form class="form-inline" action="/add" method="post">
-                <div class="form-group mx-sm-3 mb-2 field">
-                    <!-- <label>Task</label> -->
-                    <input class="form-control" type="text" name="title" placeholder="Enter your task here..."><br>
-                </div>
-                <button class="btn btn-primary mb-2" type="submit">Add task</button>
-            </form>
-            <hr>
-            {% for todo in todo_list %}
-            <div>
-                <p>{{todo.id }}. {{ todo.title }}</p>
-                {% if todo.complete == False %}
-                <span>Not Complete</span>
-                {% else %}
-                <span>Done</span>
-                {% endif %}
-                <a href="/update/{{ todo.id }}">Mark as done</a>
-                <a href="/delete/{{ todo.id }}">Delete</a>
-            </div>
-            {% endfor %}
+{% extends 'base.html' %} {% block content %}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+
+<div style="margin-top: 25px;" class="ui container">
+    <h1 class="ui center aligned header">To Do List</h1>
+    <form class="form-inline" action="/add" method="post">
+        <div class="form-group mx-sm-3 mb-2 field">
+            <!-- <label>Task</label> -->
+            <input class="form-control" type="text" name="title" placeholder="Enter your task here..."><br>
         </div>
+        <button class="btn btn-primary mb-2" type="submit">Add task</button>
+    </form>
+    <hr> {% for todo in todo_list %}
+    <div class="ui segment">
+        <p class="ui big header">{{todo.id }}. {{ todo.title }}</p>
+        {% if todo.complete == False %}
+        <span class="ui gray label">Not Complete</span> {% else %}
+        <span class="ui green label">Done</span> {% endif %}
+        <a class="ui blue label" href="/update/{{ todo.id }}">Mark as done</a>
+        <a class="ui red label" href="/delete/{{ todo.id }}">Delete</a>
     </div>
+    {% endfor %}
 </div>
+
+
 {% endblock %}

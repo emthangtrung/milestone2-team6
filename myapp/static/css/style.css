@@ -1,6 +1,8 @@
 /* Style sheet */
 
+
 /* Chat feature section ----------------------------------*/
+
 .box1 {
     height: 100vh;
     background-image: url(../img/b17.jpg);
@@ -8,6 +10,7 @@
     display: flex;
     position: relative;
 }
+
 .box1 .button-52 {
     position: absolute;
     top: 20px;
@@ -80,7 +83,9 @@
     }
 }
 
+
 /*  */
+
 #chatbox {
     width: 40%;
     margin: auto;
@@ -91,11 +96,13 @@
     background-color: rgb(245 245 245 / 80%);
     border-radius: 5px;
 }
+
 #chatbox h1 {
     font-family: "Genos", sans-serif;
     font-family: "Sacramento", cursive;
     font-size: 100px;
 }
+
 .form-signin {
     width: 100%;
     max-width: 400px;
@@ -110,6 +117,7 @@
     padding: 10px;
     font-size: 16px;
 }
+
 .form-signin .form-control:focus {
     z-index: 2;
 }
@@ -120,6 +128,7 @@
     background-attachment: fixed;
     display: flex;
 }
+
 .chat_room_home .chatwindow {
     text-align: center;
     width: 40%;
@@ -131,6 +140,7 @@
     background-color: rgb(245 245 245 / 80%);
     border-radius: 5px;
 }
+
 .chatwindow textarea {
     resize: both;
     width: 450px;
@@ -141,6 +151,7 @@
         width: 300px;
     }
 }
+
 .chatwindow {
     position: absolute;
     top: 50;
@@ -151,21 +162,27 @@
     width: 40%;
     padding: 30px;
 }
+
 .chatroom_title {
     font-family: "Comfortaa", cursive;
     font-size: 40px;
     letter-spacing: 3px;
 }
+
 .chat_room {
     font-family: "Comforter Brush", cursive;
     font-size: 60px;
     padding-top: 50px;
 }
+
 .chat_slogan {
     font-family: "Passions Conflict", cursive;
     font-size: 45px;
 }
+
+
 /*  */
+
 .button-73 {
     appearance: none;
     background-color: #ffffff;
@@ -210,6 +227,7 @@
         padding: 0.75rem 2rem;
     }
 }
+
 .leave_btn {
     margin: 0 auto;
     padding: 0;
@@ -217,6 +235,7 @@
     padding-top: 50px;
     width: 210px;
 }
+
 .leave_btn span {
     position: relative;
     display: inline-flex;
@@ -225,6 +244,7 @@
     margin: 0 15px;
     perspective: 1000px;
 }
+
 .leave_btn span a {
     font-size: 19px;
     letter-spacing: 1px;
@@ -233,6 +253,7 @@
     transition: transform 0.25s;
     font-family: "Montserrat", sans-serif;
 }
+
 .leave_btn span a:before,
 .leave_btn span a:after {
     position: absolute;
@@ -246,18 +267,22 @@
     box-sizing: border-box;
     border-radius: 5px;
 }
+
 .leave_btn span a:before {
     color: #fff;
     background: red;
     transform: rotateY(0deg) translateZ(25px);
 }
+
 .leave_btn span a:after {
     color: rgb(255, 0, 0);
     transform: rotateX(90deg) translateZ(25px);
 }
+
 .leave_btn span a:hover {
     transform: translateZ(-25px) rotateX(-90deg);
 }
+
 .button-30 {
     align-items: center;
     appearance: none;
@@ -290,8 +315,7 @@
 }
 
 .button-30:focus {
-    box-shadow: #d6d6e7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
-        #d6d6e7 0 -3px 0 inset;
+    box-shadow: #d6d6e7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
 }
 
 .button-30:hover {
@@ -304,7 +328,9 @@
     transform: translateY(2px);
 }
 
+
 /*  */
+
 .form__group {
     position: relative;
     padding: 15px 0 0;
@@ -325,10 +351,12 @@
     background: transparent;
     transition: border-color 0.2s;
 }
+
 .form__field::placeholder {
     color: transparent;
 }
-.form__field:placeholder-shown ~ .form__label {
+
+.form__field:placeholder-shown~.form__label {
     font-size: 1.3rem;
     cursor: text;
     top: 20px;
@@ -350,7 +378,8 @@
     border-image: linear-gradient(to right, #11998e, #38ef7d);
     border-image-slice: 1;
 }
-.form__field:focus ~ .form__label {
+
+.form__field:focus~.form__label {
     position: absolute;
     top: 0;
     display: block;
@@ -360,14 +389,20 @@
     font-weight: 700;
 }
 
+
 /* reset input */
+
 .form__field:required,
 .form__field:invalid {
     box-shadow: none;
 }
+
+
 /* End chat section--------------------------------------- */
 
+
 /* home.html */
+
 .home_main {
     background-image: url(../img/b1.jpg);
     background-attachment: fixed;
@@ -377,7 +412,7 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-.home_welcome{
+.home_welcome {
     text-align: center;
     top: 30%;
     width: 40%;
@@ -390,13 +425,15 @@
     border-radius: 5px;
     position: relative;
 }
-.home_welcome .home_content{
+
+.home_welcome .home_content {
     width: 100%;
     max-width: 400px;
     padding: 15px;
     margin: auto;
     position: relative;
 }
+
 .menu {
     width: 5px;
     position: absolute;
@@ -406,10 +443,9 @@
     background: #e8e8f3;
     border-radius: 100%;
     cursor: pointer;
-    box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.15), -7px -7px 20px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2),
-        inset 7px 7px 15px rgba(55, 84, 170, 0), inset -7px -7px 20px rgba(255, 255, 255, 0),
-        0px 0px 4px rgba(255, 255, 255, 0);
+    box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.15), -7px -7px 20px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2), inset 7px 7px 15px rgba(55, 84, 170, 0), inset -7px -7px 20px rgba(255, 255, 255, 0), 0px 0px 4px rgba(255, 255, 255, 0);
 }
+
 .menu::before,
 .menu::after {
     content: "";
@@ -423,35 +459,44 @@
     transition: 0.2s ease;
     z-index: 1;
 }
+
 .menu::before {
     transform: rotate(0deg);
 }
+
 .menu::after {
     transform: rotate(-90deg);
 }
+
 .menu.open {
     opacity: 0.9;
 }
+
 .menu.open::before {
     transform: rotate(45deg);
 }
+
 .menu.open::after {
     transform: rotate(-45deg);
 }
+
 .menu.open .button {
     opacity: 1;
     pointer-events: auto;
 }
+
 .menu.open .button:first-of-type {
     bottom: 40px;
     right: 70px;
     background: url("../img/homepage-icon-png-2574.png") no-repeat 50%/50% #e8e8f3;
 }
+
 .menu.open .button:nth-of-type(2) {
     bottom: 80px;
     background: url("../img/login-icon-3049.png") no-repeat 50%/50% #e8e8f3;
     transition-delay: 0.05s;
 }
+
 .menu.open .button:last-of-type {
     bottom: 40px;
     right: -70px;
@@ -470,22 +515,25 @@
     opacity: 0;
     pointer-events: none;
     box-shadow: inherit;
-    transition: 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28), 0.2s ease opacity,
-        0.2s cubic-bezier(0.08, 0.82, 0.17, 1) transform;
+    transition: 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28), 0.2s ease opacity, 0.2s cubic-bezier(0.08, 0.82, 0.17, 1) transform;
 }
+
 .button:hover {
     transform: scale(1.1);
 }
 
+
 /* Login.html */
-.bg_content{
+
+.bg_content {
     background-attachment: fixed;
     height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
     -webkit-tap-highlight-color: transparent;
 }
-.login_form{
+
+.login_form {
     text-align: center;
     top: 15%;
     width: 40%;
@@ -496,87 +544,101 @@
     padding-bottom: 40px;
     position: relative;
 }
-.login_main{
+
+.login_main {
     background-image: url(../img/b2.jpg);
 }
-.signup_main{
+
+.signup_main {
     background-image: url(../img/b3.jpg);
 }
 
-/*  */
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,500,800);
-.snip1175 {
-  font-family: 'Raleway', Arial, sans-serif;
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-.snip1175 * {
-  box-sizing: border-box;
-  -webkit-transition: all 0.35s ease;
-  transition: all 0.35s ease;
-}
-.snip1175 li {
-  display: inline-block;
-  list-style: outside none none;
-  margin: 0 1.2em;
-  overflow: hidden;
-}
-.snip1175 a {
-  padding: 0 0.5em 0 0.2em;
-  color: rgba(0, 0, 0, 0.527);
-  position: relative;
-  display: inline-block;
-  margin: 0;
-  text-decoration: none;
-}
-.snip1175 a:before,
-.snip1175 a:after {
-  position: absolute;
-  -webkit-transition: all 0.35s ease;
-  transition: all 0.35s ease;
-}
-.snip1175 a:before {
-  right: 100%;
-  display: block;
-  width: 3px;
-  height: 100%;
-  content: "";
-  background-color: #f39c12;
-}
-.snip1175 a:after {
-  padding: 0 0.5em 0 0.2em;
-  position: absolute;
-  right: 100%;
-  top: 0;
-  content: attr(data-hover);
-  color: rgb(0, 0, 0);
-  white-space: nowrap;
-}
-.snip1175 li:hover a,
-.snip1175 .current a {
-  transform: translateX(100%);
-}
 
 /*  */
-.brand_logo{
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500,800);
+.snip1175 {
+    font-family: 'Raleway', Arial, sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.snip1175 * {
+    box-sizing: border-box;
+    -webkit-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+}
+
+.snip1175 li {
+    display: inline-block;
+    list-style: outside none none;
+    margin: 0 1.2em;
+    overflow: hidden;
+}
+
+.snip1175 a {
+    padding: 0 0.5em 0 0.2em;
+    color: rgba(0, 0, 0, 0.527);
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    text-decoration: none;
+}
+
+.snip1175 a:before,
+.snip1175 a:after {
+    position: absolute;
+    -webkit-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+}
+
+.snip1175 a:before {
+    right: 100%;
+    display: block;
+    width: 3px;
+    height: 100%;
+    content: "";
+    background-color: #f39c12;
+}
+
+.snip1175 a:after {
+    padding: 0 0.5em 0 0.2em;
+    position: absolute;
+    right: 100%;
+    top: 0;
+    content: attr(data-hover);
+    color: rgb(0, 0, 0);
+    white-space: nowrap;
+}
+
+.snip1175 li:hover a,
+.snip1175 .current a {
+    transform: translateX(100%);
+}
+
+
+/*  */
+
+.brand_logo {
     width: 40px;
     cursor: pointer;
 }
 
-@media screen and (max-width: 576px){
+@media screen and (max-width: 576px) {}
 
-}
 
 /*  */
-.todo{
+
+.todo {
     background-image: url(../img/b18.jpg);
     background-attachment: fixed;
     display: flex;
     position: relative;
     height: 100vh;
 }
-.todo_main{
+
+.todo_main {
     width: 40%;
     margin: auto;
     display: block;
@@ -584,4 +646,27 @@
     padding: 40px;
     background-color: rgb(245 245 245 / 80%);
     border-radius: 5px;
+}
+
+.carousel-item {
+    height: 50rem;
+    background: #f37021;
+    color: white;
+    position: relative;
+}
+
+
+/* .container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-bottom: 50px;
+} */
+
+.carousel-img {
+    height: 50rem;
+    background: #f37021;
+    color: white;
+    position: relative;
 }
